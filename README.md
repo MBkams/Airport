@@ -14,7 +14,7 @@ de données dynamique (API aviationstack.com).
 
   https://openjfx.io/openjfx-docs/#install-java
   
-#### Configuration de fichier sous Vscode
+#### Configuration sous Vscode
 
 1. Installer l'extension Debugger for Java
 2. Ajouter les bibliothèques JavaFx sous le répertoire
