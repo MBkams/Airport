@@ -12,4 +12,7 @@ de données dynamique (API aviationstack.com).
 
 ### Installation
 
+  https://openjfx.io/openjfx-docs/#install-java
+  
+
 
