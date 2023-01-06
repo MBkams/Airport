@@ -14,5 +14,7 @@ de données dynamique (API aviationstack.com).
 
   https://openjfx.io/openjfx-docs/#install-java
   
-
+#### Configuration 
+.vscode/launch
+  
 
