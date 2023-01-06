@@ -7,8 +7,8 @@ de données dynamique (API aviationstack.com).
 
 ### Prerequis
 
-1. IDE avec Java
-2. Framework JavaFx
+- IDE avec Java
+- Framework JavaFx
 
 ### Installation
 
@@ -16,8 +16,10 @@ de données dynamique (API aviationstack.com).
   
 #### Configuration de fichier sous Vscode
 
-Générer un fichier de config :
-  lunch.java
+1. Installer l'extension Debugger for Java
+2. Ajouter les bibliothèques JavaFx sous le répertoire
+2. Générer un fichier de config : launch.java
+4. Ajouter
 ***
 "vmArgs": "--module-path \"C:\\Program Files\\Java\\javafx-sdk-19\\lib\" --add-modules javafx.controls,javafx.fxml"
 ***
