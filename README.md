@@ -1,4 +1,4 @@
-## Projet Aereoport Java
+## Projet Aeroport Java
 
 Le but est de réaliser un affichage de quelques données relatives à l'aviation de tourisme
 à l'aide de données statiques (liste des aéroports mondiaux au format .csv), et une source 
