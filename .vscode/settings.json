@@ -8,6 +8,8 @@
         "c:\\Program Files\\Java\\javafx-sdk-19\\lib\\javafx.media.jar",
         "c:\\Program Files\\Java\\javafx-sdk-19\\lib\\javafx.swing.jar",
         "c:\\Program Files\\Java\\javafx-sdk-19\\lib\\javafx.web.jar",
-        "c:\\Program Files\\Java\\javafx-sdk-19\\lib\\javafx-swt.jar"
+        "c:\\Program Files\\Java\\javafx-sdk-19\\lib\\javafx-swt.jar",
+        "libJson/javax.json-1.1.jar",
+        "libJson/javax.json-api-1.1.jar"
     ]
 }

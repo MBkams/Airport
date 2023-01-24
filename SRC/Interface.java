@@ -1,11 +1,18 @@
 package SRC;
 
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.ArrayList;
+
 import javafx.application.Application;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.PickResult;
+import javafx.scene.paint.Color;
 import javafx.scene.transform.Translate;
 import javafx.stage.Stage;
 
@@ -22,6 +29,8 @@ import javafx.geometry.Point3D;
  */ 
 public class Interface extends Application {
 
+    ArrayList<Flight> listOfFlight = new ArrayList<Flight>();
+    
     //La translation de la Terre sur l'axe Z
     Translate TransAxeZ = new Translate();
 
@@ -45,6 +54,7 @@ public class Interface extends Application {
     
     // Creation de la scene
     Scene theScene = new Scene(earth, 600, 400,true);
+    theScene.setFill(Color.web("#000011"));
 
     // Ajout d'une perspective de camera avec un recul de 300 pixels
     PerspectiveCamera camera = new PerspectiveCamera(true);
@@ -61,8 +71,6 @@ public class Interface extends Application {
     theScene.addEventHandler(MouseEvent.ANY, event -> {
         if (event.getEventType() == MouseEvent.MOUSE_PRESSED) {
             System.out.println("Clicked on : ("+ event.getSceneX() + ", "+ event.getSceneY()+")");
-            PosMouseX = event.getSceneX();
-            PosMouseY = event.getSceneY();
 
         }
         if (event.getButton() == MouseButton.PRIMARY && event.getEventType() == MouseEvent.MOUSE_DRAGGED) {
@@ -100,6 +108,8 @@ public class Interface extends Application {
 
                 //Affichage sur la console de l'aeroport le plus proche
                 System.out.println(apt_near.toString());
+
+                
   
             }
         }

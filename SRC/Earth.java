@@ -22,6 +22,9 @@ public class Earth extends Group{
   //Le rayon de rotation de la terre
   private Rotate ry = new Rotate();
 
+  //Rayon de la terre en pixels
+  final int RAY = 300;
+
   /**
    * Obtient l'objet Sphere représentant la Terre.
    * @return l'objet Sphere représentant la Terre.
@@ -44,9 +47,11 @@ public class Earth extends Group{
 
       //Initialise la liste des spheres jaunes
       yellowSphere = new ArrayList<Sphere>();
+
       
-      //Initialise la sphere représentant la Terre avec 300 pixels de rayon
-      sph = new Sphere(300);
+      
+      //Initialise la sphere représentant la Terre avec un rayon
+      sph = new Sphere(RAY);
 
       //Création d'un matériau de type ombrage de Phong
       PhongMaterial material = new PhongMaterial();
@@ -87,7 +92,7 @@ public class Earth extends Group{
     }
     
     /**
-       * Crée une nouvelle sphère avec une couleur et l'ajoute à la scène
+       * Crée une nouvelle sphère avec une couleur 
        * @param a : Objet Aeroport qui contient les valeurs de latitude et de longitude
        * @param color : La couleur de la sphère
        * @return : L'objet sphère créé
@@ -110,36 +115,37 @@ public class Earth extends Group{
         //Mapping du matériel sur le sphère
         coloredSphere.setMaterial(mat);
 
-        //Récupération des coordonées GPS
+        /**
+         * Récupération des coordonées GPS et conversion en radian
+         * Le facteeur 13 est une correction empirique de la latitude
+         */
         double latitude=Math.toRadians(a.getLatitude()-13);
         double longitude=Math.toRadians(a.getLongitude());
 
+     
         /**
-         * Correspondance aux valeurs de latitude et de longitude de l'aéroport
-         * @param latitude : La valeur de latitude en radians
-         * @param longitude : La valeur de longitude en radians
-         * @param coloredSphere : L'objet sphère à transformer
+         * Ajout de coodonées au sphère pour une coorespondance avec les aeroports
+         * @param argX : Coorodnées en sur l'axe X 
+         * @param argY : Coorodnées en sur l'axe Y 
+         * @param argZ : Coorodnées en sur l'axe Z 
          */
-        Translate Axez= new Translate(300.*Math.cos(latitude)*Math.sin(longitude),-300*Math.sin(latitude),-300*Math.cos(latitude)*Math.cos(longitude));
+        double argX = RAY*Math.cos(latitude)*Math.sin(longitude);
+        double argY = -RAY*Math.sin(latitude);
+        double argZ = -RAY*Math.cos(latitude)*Math.cos(longitude);
+        
+        //Translation de du sphère crée sur l'axe Z
+        Translate Axez = new Translate(argX,argY,argZ);
         coloredSphere.getTransforms().add(Axez);
-
-        /**
-          * Rotation de la sphère autour de l'axe X pour correspondre à la latitude de l'aéroport
-          * @param Rotx : Rotation autour de l'axe X avec un angle de 40 degrés
-          */
-        Rotate Rotx = new Rotate (40,Rotate.X_AXIS);
-        coloredSphere.getTransforms().add(Rotx);
-
-       /**
-        * Rotation de la sphère autour de l'axe Y pour correspondre à la longitude de l'aéroport
-        * @param Roty : Rotation autour de l'axe Y avec un angle de 73 degrés
-        */
-        Rotate Roty = new Rotate (73,Rotate.Y_AXIS);
-        coloredSphere.getTransforms().add(Roty);
 
         return coloredSphere;
       }
-
+    
+      /**
+       * Colorie une sphère en rouge
+       * @param a : Objet Aeroport qui contient les valeurs de latitude et de longitude
+       * @return : L'objet sphère colorié
+       * 
+       */
       public void displayRedSphere(Aeroport a){
         this.getChildren().add(createSphere(a,Color.RED));
     }

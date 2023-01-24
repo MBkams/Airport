@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch JsonFlightFillerOracle",
+            "request": "launch",
+            "mainClass": "SRC.JsonFlightFillerOracle",
+            "projectName": "Airport_f6ec61f0"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"

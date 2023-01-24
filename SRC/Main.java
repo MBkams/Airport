@@ -4,7 +4,7 @@ package SRC;
  * Class main pour tester l'ensemble des classes
  * 
  * @author Bilal MARECAR
- * @version 1.0
+ * @version 2.0
  */
 
 public class Main {
@@ -23,11 +23,13 @@ public class Main {
 		double distance = w.distance(48.866,2.316,paris.getLatitude(),paris.getLongitude());
 		double distanceORY = w.distance(48.866,2.316,ory.getLatitude(),ory.getLongitude());
 
+		//Affichage sur la console
 		System.out.println("Found "+w.getList().size()+" airports.");
 		System.out.println(paris);
 		System.out.println(distance);
 		System.out.println(ory);
 		System.out.println(distanceORY);
+
 	
 
 	}
